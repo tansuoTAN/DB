@@ -5,7 +5,7 @@
  * @date 2024/6/13 12:17
  * @version
  */
-package controller;
+package org.yy.controller;
 
 public interface Controller {
     void Set(String key, String value);

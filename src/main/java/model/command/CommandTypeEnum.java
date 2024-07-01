@@ -5,7 +5,7 @@
  * @date 2024/6/13 01:53
  * @version
  */
-package org.yy.model.command;
+package model.command;
 
 public enum CommandTypeEnum {
     /*

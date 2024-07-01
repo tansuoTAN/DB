@@ -5,7 +5,7 @@
  * @date 2024/6/13 12:56
  * @version
  */
-package dto;
+package org.yy.dto;
 
 public enum ActionTypeEnum {
     /*

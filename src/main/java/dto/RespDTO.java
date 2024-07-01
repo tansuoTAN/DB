@@ -5,7 +5,7 @@
  * @date 2024/6/13 13:40
  * @version
  */
-package dto;
+package org.yy.dto;
 
 import lombok.Getter;
 import lombok.Setter;
