@@ -5,7 +5,7 @@
  * @date 2024/6/13 01:59
  * @version
  */
-package model.command;
+package org.yy.model.command;
 
 import lombok.Getter;
 import lombok.Setter;
