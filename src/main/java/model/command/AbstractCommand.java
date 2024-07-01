@@ -5,7 +5,7 @@
  * @date 2024/6/13 01:51
  * @version
  */
-package org.yy.model.command;
+package model.command;
 
 import com.alibaba.fastjson.JSON;
 import lombok.Getter;

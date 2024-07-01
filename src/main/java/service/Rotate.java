@@ -1,4 +1,6 @@
-package service;
+package org.yy.service;
+
+import org.yy.model.command.CommandPos;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,10 +13,10 @@ public class Rotate extends Thread {
     @Override
     public void run() {
         // 清空数据库文件
-        normalStore.ClearFile("YY-db");
+        normalStore.ClearDataBaseFile("YY-db");
 
         // 压缩日志文件
-        normalStore.CompressFile();
+        normalStore.CompressIndexFile();
 
         // 重写数据库文件
         try (FileWriter writer = new FileWriter("YY-db")) {
