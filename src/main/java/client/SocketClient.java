@@ -24,7 +24,7 @@ public class SocketClient implements Client {
     }
 
     @Override
-    public void Set(String key, String value) {
+    public void set(String key, String value) {
         try (Socket socket = new Socket(host, port);
              ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream ois = new ObjectInputStream(socket.getInputStream())) {
@@ -33,7 +33,7 @@ public class SocketClient implements Client {
             oos.writeObject(dto);
             oos.flush();
             RespDTO resp = (RespDTO) ois.readObject();
-            System.out.println("客户端SET:  " + "resp data: "+ resp.toString());
+            System.out.println("resp data: "+ resp.toString());
             // 接收响应数据
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -41,7 +41,7 @@ public class SocketClient implements Client {
     }
 
     @Override
-    public String Get(String key) {
+    public String get(String key) {
         try (Socket socket = new Socket(host, port);
              ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream ois = new ObjectInputStream(socket.getInputStream())) {
@@ -50,7 +50,7 @@ public class SocketClient implements Client {
             oos.writeObject(dto);
             oos.flush();
             RespDTO resp = (RespDTO) ois.readObject();
-            System.out.println("客户端GET:  " + "resp data: " + resp.toString());
+            System.out.println("resp data: "+ resp.toString());
             // 接收响应数据
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -59,21 +59,8 @@ public class SocketClient implements Client {
     }
 
     @Override
-    public void Remove(String key) {
-        try (Socket socket = new Socket(host, port);
-             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
-             ObjectInputStream ois = new ObjectInputStream(socket.getInputStream())) {
-            // 传输序列化对象
-            ActionDTO dto = new ActionDTO(ActionTypeEnum.RM, key, null);
+    public void rm(String key) {
 
-            oos.writeObject(dto);
-            oos.flush();
-            RespDTO resp = (RespDTO) ois.readObject();
-            System.out.println("客户端RM:  " + "resp data: "+ resp.toString());
-            // 接收响应数据
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 
 }
