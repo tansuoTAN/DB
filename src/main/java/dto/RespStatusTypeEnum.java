@@ -5,7 +5,7 @@
  * @date 2024/6/13 13:42
  * @version
  */
-package dto;
+package org.yy.dto;
 
 public enum RespStatusTypeEnum {
     /*

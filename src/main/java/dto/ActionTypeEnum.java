@@ -5,7 +5,7 @@
  * @date 2024/6/13 12:56
  * @version
  */
-package dto;
+package org.yy.dto;
 
 public enum ActionTypeEnum {
     /*
@@ -19,5 +19,9 @@ public enum ActionTypeEnum {
     /*
     * 查
     * */
-    GET
+    GET,
+    /*
+     * 回退
+     */
+    GOBACK
 }
