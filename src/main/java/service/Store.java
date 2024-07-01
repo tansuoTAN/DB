@@ -5,7 +5,7 @@
  * @date 2024/6/13 02:05
  * @version
  */
-package org.yy.service;
+package service;
 
 import java.io.Closeable;
 

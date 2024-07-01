@@ -5,20 +5,20 @@
  * @date 2024/6/13 02:07
  * @version
  */
-package org.yy.service;
+package service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import lombok.Getter;
-import org.yy.model.command.Command;
-import org.yy.model.command.CommandPos;
-import org.yy.model.command.RmCommand;
-import org.yy.model.command.SetCommand;
+import model.command.Command;
+import model.command.CommandPos;
+import model.command.RmCommand;
+import model.command.SetCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.yy.utils.CommandUtil;
-import org.yy.utils.LoggerUtil;
-import org.yy.utils.RandomAccessFileUtil;
+import utils.CommandUtil;
+import utils.LoggerUtil;
+import utils.RandomAccessFileUtil;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -41,7 +41,7 @@ public class NormalStore implements Store {
 
     /**
      * hash索引，存的是数据长度和偏移量
-     * */
+     */
     @Getter
     private HashMap<String, CommandPos> index;
 
@@ -79,7 +79,7 @@ public class NormalStore implements Store {
 
         File file = new File(dataDir);
         if (!file.exists()) {
-            LoggerUtil.info(LOGGER,logFormat, "NormalStore","dataDir isn't exist,creating...");
+            LoggerUtil.info(LOGGER, logFormat, "NormalStore", "dataDir isn't exist,creating...");
             file.mkdirs();
         }
         this.reloadIndex();
@@ -116,7 +116,7 @@ public class NormalStore implements Store {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        LoggerUtil.debug(LOGGER, logFormat, "reload index: "+index.toString());
+        LoggerUtil.debug(LOGGER, logFormat, "reload index: " + index.toString());
     }
 
     @Override
@@ -221,7 +221,8 @@ public class NormalStore implements Store {
     }
 
     @Override
-    public void close() {}
+    public void close() {
+    }
 
     public void ClearFile(String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
@@ -253,7 +254,7 @@ public class NormalStore implements Store {
 
         try (FileWriter writer = new FileWriter(this.genFilePath())) {
             for (String line :
-                arrayList) {
+                    arrayList) {
                 writer.write(line + "\r\n");
             }
         } catch (IOException e) {
@@ -269,4 +270,5 @@ public class NormalStore implements Store {
         Rotate rotate = new Rotate(normalStore);
         rotate.start();
 
+    }
 }
