@@ -1,17 +1,16 @@
 /*
  *@Type Client.java
  * @Desc
- * @Author neurone urmsone@163.com
+ * @Author urmsone urmsone@163.com
  * @date 2024/6/13 13:15
  * @version
  */
 package client;
 
 public interface Client {
-    void Set(String key, String value);
+    void set(String key, String value);
 
-    String Get(String key);
+    String get(String key);
 
-    void Remove(String key);
-
+    void rm(String key);
 }

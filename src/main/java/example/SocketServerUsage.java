@@ -5,11 +5,11 @@
  * @date 2024/6/13 14:08
  * @version
  */
-package example;
+package org.yy.example;
 
-import controller.SocketServerController;
-import service.NormalStore;
-import service.Store;
+import org.yy.controller.SocketServerController;
+import org.yy.service.NormalStore;
+import org.yy.service.Store;
 
 import java.io.File;
 
