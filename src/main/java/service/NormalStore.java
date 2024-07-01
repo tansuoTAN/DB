@@ -132,7 +132,7 @@ public class NormalStore implements Store {
 
 //                RotateDataBaseFile();
 
-                RotateDataBaseFile(this);
+                RotateFile(this);
             }
             // 写table（wal）文件
             RandomAccessFileUtil.writeInt(this.genFilePath(), commandBytes.length);
@@ -196,7 +196,7 @@ public class NormalStore implements Store {
 
 //                RotateDataBaseFile();
 
-                RotateDataBaseFile(this);
+                RotateFile(this);
             }
             // 写table（wal）文件
             RandomAccessFileUtil.writeInt(this.genFilePath(), commandBytes.length);
@@ -217,13 +217,13 @@ public class NormalStore implements Store {
 
 //                RotateDataBaseFile();
 
-        RotateDataBaseFile(this);
+        RotateFile(this);
     }
 
     @Override
     public void close() {}
 
-    public void ClearDataBaseFile(String filePath) {
+    public void ClearFile(String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
             // 不写入任何内容，直接关闭writer
         } catch (IOException e) {
@@ -231,7 +231,7 @@ public class NormalStore implements Store {
         }
     }
 
-    public void CompressIndexFile() {
+    public void CompressFile() {
         ArrayList<String> arrayList = new ArrayList<>();
         HashSet<String> hashSet = new HashSet<>();
 
@@ -249,7 +249,7 @@ public class NormalStore implements Store {
             e.printStackTrace();
         }
 
-        ClearDataBaseFile(this.genFilePath());
+        ClearFile(this.genFilePath());
 
         try (FileWriter writer = new FileWriter(this.genFilePath())) {
             for (String line :
@@ -265,23 +265,8 @@ public class NormalStore implements Store {
         reloadIndex();
     }
 
-    public void RotateDataBaseFile(NormalStore normalStore) {
+    public void RotateFile(NormalStore normalStore) {
         Rotate rotate = new Rotate(normalStore);
         rotate.start();
-//        // 清空数据库文件
-//        ClearDataBaseFile("YY-db");
-//
-//        // 压缩日志文件
-//        CompressIndexFile();
-//
-//        // 重写数据库文件
-//        try (FileWriter writer = new FileWriter("YY-db")) {
-//            for (String key : index.keySet()) {
-//                writer.write(key + "," + Get(key) + "\r\n");
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-    }
 
 }

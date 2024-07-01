@@ -81,7 +81,7 @@ public class CmdClient{
             cmd = parser.parse(options, input);
         } catch (ParseException e) {
             System.err.println("Parsing failed.  Reason: " + e.getMessage());
-            formatter.printHelp("yydb", options);
+            formatter.printHelp("DB", options);
             System.exit(1);
         }
 
@@ -110,7 +110,7 @@ public class CmdClient{
 
     // 打印帮助信息
     private static void PrintHelp(HelpFormatter formatter, Options options) {
-        formatter.printHelp("yydb", options, true);
+        formatter.printHelp("DB", options, true);
     }
 
     public void Test(String[] input) {
