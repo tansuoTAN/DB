@@ -1,6 +1,6 @@
-package org.yy.service;
+package service;
 
-import org.yy.model.command.CommandPos;
+import model.command.CommandPos;
 
 import java.io.FileWriter;
 import java.io.IOException;

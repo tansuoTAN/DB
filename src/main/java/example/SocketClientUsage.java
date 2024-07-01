@@ -5,11 +5,11 @@
  * @date 2024/6/13 14:07
  * @version
  */
-package org.yy.example;
+package example;
 
-import org.yy.client.Client;
-import org.yy.client.CmdClient;
-import org.yy.client.SocketClient;
+import client.Client;
+import client.CmdClient;
+import client.SocketClient;
 
 public class SocketClientUsage {
     public static void main(String[] args) {

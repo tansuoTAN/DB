@@ -5,7 +5,7 @@
  * @date 2024/6/13 13:58
  * @version
  */
-package org.yy.client;
+package client;
 
 import org.apache.commons.cli.*;
 
